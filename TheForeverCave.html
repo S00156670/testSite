@@ -3,13 +3,16 @@
 <h2>The Forever Cave (work in progress)</h2>
 
 
-<!--<h3>chats and stats - 16/06/17</h3>
+<!--<h3> BlogpostTitle - 16/07/17</h3>
 <iframe width="854" height="480" src="https://www.youtube.com/embed/KB9L9theaCw" frameborder="0" allowfullscreen></iframe>
+
 <p>
 </p>
+
 <img src="https://pbs.twimg.com/card_img/875275809761710080/IgQPF7Ax?format=jpg&name=600x314" alt="charachter profiles" style="width:600px;height:314px;">
 <p>
 </p>
+
 <p>
     Unity - Special Tip
     Add Color Correction Curves to your camera and play with the values to punch up your visual impact.
@@ -20,6 +23,38 @@
     <li><a href="https://www.mixamo.com/auto-rigger">mixamo - online rigging</a></li>
 </ul>
 <p> ----------------------- </p>-->
+
+
+
+<h3>items, inventory and mystery - 04/07/17</h3>
+<!--<iframe width="854" height="480" src="https://www.youtube.com/embed/KB9L9theaCw" frameborder="0" allowfullscreen></iframe>-->
+<p>
+    While the <del>plank of wood</del> sword you have seen previously is quite formidabble it just wont do on its own. As a result of this I managed to construct a projectile based weapon, a magic staff which summons a ball of damage which propells itself across the level. 
+    Little did i know the horrors that would await me when I first tried to get the charachter to swap between these 2 weapons.
+    The sword no longer seemed able to pass its damage....  even though it was exactly the same as when it worked.
+    This curse haunted me for 2 full days, what was wrong?
+    Eventually it dawned on me, i must have changed something in the enemy to allow for the magic ball which the sword depended on, and I eventually found my culprit.
+    <i> The <b>Is Trigger</b> checkbox. </i>
+</p>
+<img src="https://ibb.co/mmzjnv" alt="canvas screenshot" style="width:600px;height:314px;">
+<p>
+    It had been checked while I was using the sword, and I now found myself in despair as it need to be unchecked for my dreams to be fulfilled and my magical fireballs to be able to scorch into ashes all who stand before the mighty player of this game.
+    Then came the revelation, the sword should manage its own problems.I left enemy <b>Is Trigger</b> unchecked. I changed the <b>Is Trigger</b> value on my sword prefab to checked, the sword worked. So did the projectiles.
+    Hurrah!!
+
+    Times were good but these gameobjects remained unworthy, for they were hardcoded directly into the inventory controller. And so they were purged.
+    Next begins a new glorious era in which a master item list akin to a database will be referenced by the inventory controller, and players will be able to collect and change equippable items according to their own will.
+
+    Construction has begun already with changes to the inventory controller and a snazzy but simple canvas UI to help players select their choices.  
+    The loot is coming.
+</p>
+<img src="https://ibb.co/iCQofF" alt="canvas screenshot" style="width:600px;height:314px;">
+<p>
+    Unity - Special Tip
+    using UnityEngine.UI; this namespace allows you to directly reference UI elements such as buttons as objects in your c#.
+</p>
+<p> ----------------------- </p>
+
 
 
 <h3>chats and stats - 24/06/17</h3>
@@ -36,15 +71,7 @@
 <p>
     The standard fog which was being used before is now accompanied by the global fog script from the standard assets which helps generate fog effect more fully around the screen than before.
 </p>
-<!--<p>
-    Unity - Special Tip
-    Add Color Correction Curves to your camera and play with the values to punch up your visual impact.
-</p>
-<ul>
-    <li>links</li>
-    <li><a href="https://www.cgtrader.com/free-3d-models/character/woman/low-poly-base-mesh-female">Pavel Mostovschikov - low poly female</a></li>
-    <li><a href="https://www.mixamo.com/auto-rigger">mixamo - online rigging</a></li>
-</ul>-->
+
 <p> ----------------------- </p>
 
 
