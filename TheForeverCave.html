@@ -18,7 +18,7 @@
 
 <p>
     Unity - Special Tip
-    Add Color Correction Curves to your camera and play with the values to punch up your visual impact.
+    SpecialTipText
 </p>
 <ul>
     <li>links</li>
@@ -26,6 +26,54 @@
     <li><a href="https://www.mixamo.com/auto-rigger">mixamo - online rigging</a></li>
 </ul>
 <p> ----------------------- </p>-->
+
+
+
+
+
+<h3>procedural meshes and fancy new toys - 24/07/17</h3>
+
+<p>
+    Recent developments in this games development have been key deciding factors, as to its final structure. When I origionally wrote my design documents back in the start of June I left myself a plan A and a plan B for how the caves would work.
+    Plan B was simply slotting primitaves into a pattern to form the cave around the player, at the time of writing the document it seemed a worthy backup plan which would be simple to implemrnt. However while going through the process of sorting the navigation for my player and enemy I realised that for this to work i would probably need each chunk of wall to be a nav-mesh-agent. While that would be possible to implement it would never be concidered efficent. Plan A was looking better and better every day, good thing it was the way I always wanted to do it. This is mainly because it would involve learning to do something I have wanted to do for a while, generate a procedural mesh for a game.
+    
+    So I set about researching how to fully implement plan A. Soon I was experamenting with mesh generation and researching information on how nav mesh updates and manages itself. I began to suspect it may be tricky, there was no way to generate a nav-mesh on the fly built in to unity so I started planning ways to deform a mesh in game with a pre-baked nav and then force the nav to refresh itself after, hopefully registering the new relative topology of its parts in the process.
+    Then I learned that the unity 5.6 updates included support for the feature of my dreams, new API for generating a nav-mesh at runtime. However, I was using 5.4.
+    Despite this I took the news as a sign that I should give it a go.To risk the mimimum amount of time I potentially wasted chasing this new feature I decided I would only attempt the upgrade if I got satisfactory mesh generation for the dungeon working first.
+</p>
+
+<img src="http://image.ibb.co/n9p22v/4_Random_Paths.jpg" alt="random paths" style="width:1898px;height:870px;">
+
+<p>
+    The first step was generating a procedural plain, then writhing code to randomly assign a collection of waypoint vector positions for the path.
+    After this was done, it was a straightforward process to change the target position of any verticies in the mesh not refrenged as path to be higher up, with the pollygons between forming the walls.
+</p>
+
+<img src="http://image.ibb.co/h4AYZk/apiBox.png" alt="API assistant" style="width:396px;height:226px;">
+    
+<p>
+    Despite my apprehension with regard to updating unity while mid-project, I was relieved to find it a relatively painless process. There is an automated API updater built into unity which handled most of the changes required, however there were some of the standard assets I have imported that needed a little manual help to get up to date. These changes mainly involved how HDR is enabled and how texture compression for sprites is refrenced.
+    With ready to go I have begun accesing the new features I desired and now have a nav-mesh baking out on the fly along with my procedural cave geometry, though it is currently not accesable to my player and still needs tweaking to its general peramaters I can see it. I still need to strip out the elements of the previous nav which are still baked into the level, then soon hopefully get the player and enemy using their shiney new nav-mesh. 
+    I see this as the final main technical hurdle for the game MVP. 
+</p>
+    <img src="http://image.ibb.co/fLMRLQ/procedural_Nav_mesh.jpg" alt="new nav" style="width:1070px;height:1180px;">
+<p>
+    After this works there are then only 4 relatively minor further requirements before the game will be complete enough to be worth publicly playtesting with. While still tricky in their own ways I will happily be heading back into previously well-charted waters.
+    They are enemy spawning, item pickup, player HUD cave/campsite transitioning.
+    (I already have a short list of victims I plan to force to play this pre-alpha release)
+</p>
+<p>
+    Unity - Special Tip
+    When in doubt, save copies. Then follow your heart.
+</p>
+<ul>
+    <li>links</li>
+    <li><a href="https://github.com/Unity-Technologies/NavMeshComponents/tree/master/Assets/Examples/Scripts">Unity Guthub - NavMeshComponents</a></li>
+    <li><a href="https://forum.unity3d.com/threads/welcome-new-navmesh-features-experimental-preview.438991/">Unity Announcement - new nav features overview</a></li>
+</ul>
+<p> ----------------------- </p>
+
+
 
 
 
