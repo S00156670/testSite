@@ -6,7 +6,7 @@
 
 <p> ----------------------- </p>
 
-<!--<h3> BlogpostTitle - 16/07/17</h3>
+<!--<h3> BlogpostTitle - 16/08/17</h3>
 <iframe width="854" height="480" src="https://www.youtube.com/embed/KB9L9theaCw" frameborder="0" allowfullscreen></iframe>
 
 <p>
@@ -27,6 +27,32 @@
 </ul>
 <p> ----------------------- </p>-->
 
+
+<h3> gameplay for game - 22/08/17</h3>
+
+<p>
+    The new nav mesh is working well, with player and enemies all reading it properly.
+    For quite a while I thought getting the player to transition between meshes was hard, I had it working but not as well as I wanted it to.
+    I was using navAgent.transform.position and setDestination with the aid of off-mesh links to bridge the gap between the nav meshes. It was getting me into the maze alright, but due to the ramdom position of the cave end applying the same technique for returning to camp proved to be very awkward.
+    However I eventually found a better way, using navAgent.Warp I can now cause the player to be properly teleported as I wanted initially.  
+
+    The player is also now succesfully picking up items off the ground, which include brand new consumable potion functionality where it actually does something to help you.
+
+    Getting the enemies to spawn was simple enough, however ensuring that they spawned only in the proper places for the generated map was tricky. I managed to get them spawing in almost always good positions but eventually had to move on without properly refining enemies sometimes spawing too close to the edge of the path. I worked around this by causing my dungeon manager to check its enemies after completing construction and then remove all badly positioned enemies from the game.  
+
+</p>
+
+<img src="http://preview.ibb.co/bWQ1K5/Agame.png" alt="gameplay screenshot" style="width:1025px;height:540px;">
+
+<p>
+    The player HUD has also been implemented and is working well aside from 1 minor bug. The health and experience bars are not setting properly on initiating the game, but they begin working properly as soon as the player has recieved damage and experience. I believe this could be superficially fixed with an extra call to my UiEventHandeler in the right place but probably the true cause of this lies in my script executuion order and so I will have to look into this further.
+
+    Player controlls have been refined and are nearly in what I plan to be their final state. Also the game now better responds to your progression and a win condition is triggered on completing the 5th cave.
+
+    The game is now basicially playable, although not yet very challenging as there is not yet any proper penalty for player death. That will come soon.
+</p>
+
+<p> ----------------------- </p>
 
 
 
