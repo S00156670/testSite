@@ -1,0 +1,30 @@
+body {
+    background-color : antiquewhite;
+}
+
+header {
+    /*text-size-adjust : auto;*/
+    background-color : chocolate ;
+    padding : 10px ;
+}
+
+header ul li {
+    display : inline-block ;
+    margin : 10px ;
+    background-color : burlywood;
+    font-size : x-large;
+}
+
+footer {
+    background-color : chocolate ;
+    padding : 10px ;
+}
+
+.content {
+
+    background-color : lavender ;
+    border : solid ;
+    border-color : burlywood ;
+    border-width : medium ;
+
+}
