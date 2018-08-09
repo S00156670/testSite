@@ -1,217 +1,249 @@
-<h1>Desktop Games</h1>
+<head>
+    <meta name="author" content="Bryan Foley" />
+    <link href="style.css" type="text/css" rel="stylesheet" />
 
-<h2>The Forever Cave (work in progress)</h2>
+</head>
 
-<a href="https://github.com/S00156670/TheForeverCave">check out the current code here</a>
+<body>
 
-<p> ----------------------- </p>
+    <header>
 
-<!--<h3> BlogpostTitle - 16/08/17</h3>
-<iframe width="854" height="480" src="https://www.youtube.com/embed/KB9L9theaCw" frameborder="0" allowfullscreen></iframe>
+        <ul>
+            <li><a href="desktopGames.html">desktop games</a></li>
+            <li><a href="mobileGames.html">mobile games</a></li>
+            <li>other stuff??</li>
+        </ul>
 
-<p>
-</p>
-
-<img src="https://pbs.twimg.com/card_img/875275809761710080/IgQPF7Ax?format=jpg&name=600x314" alt="charachter profiles" style="width:600px;height:314px;">
-<p>
-</p>
-
-<p>
-    Unity - Special Tip
-    SpecialTipText
-</p>
-<ul>
-    <li>links</li>
-    <li><a href="https://www.cgtrader.com/free-3d-models/character/woman/low-poly-base-mesh-female">Pavel Mostovschikov - low poly female</a></li>
-    <li><a href="https://www.mixamo.com/auto-rigger">mixamo - online rigging</a></li>
-</ul>
-<p> ----------------------- </p>-->
-
-<h3> proper enemies, come fight them   - 03/09/17</h3>
-
-<p>
-    I am happy to also anounce there is now a playable build for windows which can be downloaded from the link provided below.
-    Please Enjoy.
-</p>
-
-<img src="https://img.itch.zone/aW1hZ2UvMTcyOTMzLzgwNTQ2OC5wbmc=/original/vaQYU8.png" alt="gameplayshot" style="width:600px;height:314px;">
-<p>
-    Proper enemies
-
-    The stat system and the setup for the enemy the charachters and items has recently been reworked drasticly. Your stats now improve as you level up and also have a more direct impact on how much damage you give and take in battle.
-    The enemies have been reworked to also become tougher at each level so as to continue posing a reasonable challenge as you travel the cave and also each cavenow contains a boss, and the player cannot pass through the cave end portal without first defeating the boss.
-    Aswell as all these changes mentioned above there is another which is more readily obvious, the enemies are no longer boxes. instead they are actual charachter models.
-    You can view the most currently up to date full list of credits below in the list at the bottom of this post, and see a preview of the game with these meshes just below.
-</p>
-<iframe width="854" height="480" src="https://www.youtube.com/embed/PqaRsE0bE9s" frameborder="0" allowfullscreen></iframe>
-<ul>
-    <li>links</li>
-    <li><a href="https://github.com/S00156670/TheForeverCave/blob/master/ReadMe.txt">Credits</a></li>
-    <li><a href="https://jarofcarrot.itch.io/the-forever-cave">Download and play "The Forever Cave"</a></li>
-</ul>
-<p> ----------------------- </p>
-
-<h3> gameplay for game - 22/08/17</h3>
-
-<p>
-    The new nav mesh is working well, with player and enemies all reading it properly.
-    For quite a while I thought getting the player to transition between meshes was hard, I had it working but not as well as I wanted it to.
-    I was using navAgent.transform.position and setDestination with the aid of off-mesh links to bridge the gap between the nav meshes. It was getting me into the maze alright, but due to the ramdom position of the cave end applying the same technique for returning to camp proved to be very awkward.
-    However I eventually found a better way, using navAgent.Warp I can now cause the player to be properly teleported as I wanted initially.  
-
-    The player is also now succesfully picking up items off the ground, which include brand new consumable potion functionality where it actually does something to help you.
-
-    Getting the enemies to spawn was simple enough, however ensuring that they spawned only in the proper places for the generated map was tricky. I managed to get them spawing in almost always good positions but eventually had to move on without properly refining enemies sometimes spawing too close to the edge of the path. I worked around this by causing my dungeon manager to check its enemies after completing construction and then remove all badly positioned enemies from the game.  
-
-</p>
-
-<img src="http://preview.ibb.co/bWQ1K5/Agame.png" alt="gameplay screenshot" style="width:1025px;height:540px;">
-
-<p>
-    The player HUD has also been implemented and is working well aside from 1 minor bug. The health and experience bars are not setting properly on initiating the game, but they begin working properly as soon as the player has recieved damage and experience. I believe this could be superficially fixed with an extra call to my UiEventHandeler in the right place but probably the true cause of this lies in my script executuion order and so I will have to look into this further.
-
-    Player controlls have been refined and are nearly in what I plan to be their final state. Also the game now better responds to your progression and a win condition is triggered on completing the 5th cave.
-
-    The game is now basicially playable, although not yet very challenging as there is not yet any proper penalty for player death. That will come soon.
-</p>
-
-<p> ----------------------- </p>
+    </header>
 
 
+    <div class="content">
+        <h1>Desktop Games</h1>
 
+        <h2>The Forever Cave (work in progress)</h2>
+    </div>
 
-<h3>procedural meshes and fancy new toys - 24/07/17</h3>
-
-<p>
-    Recent developments in this games development have been key deciding factors, as to its final structure. When I origionally wrote my design documents back at the start of June I left myself 2 plans, A and B for how the caves would work.
-    Plan B was simply slotting primitaves into a pattern to form the cave around the player, at the time of writing the document it seemed a worthy backup plan which would be simple to implemrnt. However while going through the process of sorting the navigation for my player and enemy I realised that for this to work i would probably need each chunk of wall to be a nav-mesh-agent. While that would be possible to implement it would never be concidered efficent. Plan A was looking better and better every day, good thing it was the way I always wanted to do it. This is mainly because it would involve learning to do something I have wanted to do for a while, generate a procedural mesh for a game.
+    <div class="content">
+        <a href="https://github.com/S00156670/TheForeverCave">check out the current code here</a>
+    </div>
+  
+    <div class="content">
+        <p> ----------------------- </p>
+    </div>
     
-    So I set about researching how to fully implement plan A. Soon I was experamenting with mesh generation and researching information on how nav mesh updates and manages itself. I began to suspect it may be tricky, there was no way to generate a nav-mesh on the fly built in to unity so I started planning ways to deform a mesh in game with a pre-baked nav and then force the nav to refresh itself after, hopefully registering the new relative topology of its parts in the process.
-    Then I learned that the unity 5.6 updates included support for the feature of my dreams, new API for generating a nav-mesh at runtime. However, I was using 5.4.
-    Despite this I took the news as a sign that I should give it a go. To risk the mimimum amount of time potentially wasted chasing this new feature I decided I would only attempt the upgrade if I got satisfactory mesh generation for the dungeon working first.
-</p>
 
-<img src="http://image.ibb.co/n9p22v/4_Random_Paths.jpg" alt="random paths" style="width:1898px;height:870px;">
+    <!--<h3> BlogpostTitle - 16/08/17</h3>
+    <iframe width="854" height="480" src="https://www.youtube.com/embed/KB9L9theaCw" frameborder="0" allowfullscreen></iframe>
 
-<p>
-    The first step was generating a procedural plane, then writhing code to randomly assign a collection of waypoint vector positions for the path.
-    After this was done, it was a straightforward process to change the target position of any verticies in the mesh not refrenged as path to be higher up, with the pollygons in-between forming the walls.
-</p>
+    <p>
+    </p>
 
-<img src="http://image.ibb.co/h4AYZk/apiBox.png" alt="API assistant" style="width:396px;height:226px;">
+    <img src="https://pbs.twimg.com/card_img/875275809761710080/IgQPF7Ax?format=jpg&name=600x314" alt="charachter profiles" style="width:600px;height:314px;">
+    <p>
+    </p>
+
+    <p>
+        Unity - Special Tip
+        SpecialTipText
+    </p>
+    <ul>
+        <li>links</li>
+        <li><a href="https://www.cgtrader.com/free-3d-models/character/woman/low-poly-base-mesh-female">Pavel Mostovschikov - low poly female</a></li>
+        <li><a href="https://www.mixamo.com/auto-rigger">mixamo - online rigging</a></li>
+    </ul>
+    <p> ----------------------- </p>-->
+
+    <div class="content">
+        <h3> proper enemies, come fight them   - 03/09/17</h3>
+
+        <p>
+            I am happy to also anounce there is now a playable build for windows which can be downloaded from the link provided below.
+            Please Enjoy.
+        </p>
+
+        <img src="https://img.itch.zone/aW1hZ2UvMTcyOTMzLzgwNTQ2OC5wbmc=/original/vaQYU8.png" alt="gameplayshot" style="width:600px;height:314px;">
+        <p>
+            Proper enemies
+
+            The stat system and the setup for the enemy the charachters and items has recently been reworked drasticly. Your stats now improve as you level up and also have a more direct impact on how much damage you give and take in battle.
+            The enemies have been reworked to also become tougher at each level so as to continue posing a reasonable challenge as you travel the cave and also each cavenow contains a boss, and the player cannot pass through the cave end portal without first defeating the boss.
+            Aswell as all these changes mentioned above there is another which is more readily obvious, the enemies are no longer boxes. instead they are actual charachter models.
+            You can view the most currently up to date full list of credits below in the list at the bottom of this post, and see a preview of the game with these meshes just below.
+        </p>
+        <iframe width="854" height="480" src="https://www.youtube.com/embed/PqaRsE0bE9s" frameborder="0" allowfullscreen></iframe>
+        <ul>
+            <li>links</li>
+            <li><a href="https://github.com/S00156670/TheForeverCave/blob/master/ReadMe.txt">Credits</a></li>
+            <li><a href="https://jarofcarrot.itch.io/the-forever-cave">Download and play "The Forever Cave"</a></li>
+        </ul>
+        <p> ----------------------- </p>
+    </div>
+
+    <div class="content">
+        <h3> gameplay for game - 22/08/17</h3>
+
+        <p>
+            The new nav mesh is working well, with player and enemies all reading it properly.
+            For quite a while I thought getting the player to transition between meshes was hard, I had it working but not as well as I wanted it to.
+            I was using navAgent.transform.position and setDestination with the aid of off-mesh links to bridge the gap between the nav meshes. It was getting me into the maze alright, but due to the ramdom position of the cave end applying the same technique for returning to camp proved to be very awkward.
+            However I eventually found a better way, using navAgent.Warp I can now cause the player to be properly teleported as I wanted initially.
+
+            The player is also now succesfully picking up items off the ground, which include brand new consumable potion functionality where it actually does something to help you.
+
+            Getting the enemies to spawn was simple enough, however ensuring that they spawned only in the proper places for the generated map was tricky. I managed to get them spawing in almost always good positions but eventually had to move on without properly refining enemies sometimes spawing too close to the edge of the path. I worked around this by causing my dungeon manager to check its enemies after completing construction and then remove all badly positioned enemies from the game.
+
+        </p>
+
+        <img src="http://preview.ibb.co/bWQ1K5/Agame.png" alt="gameplay screenshot" style="width:1025px;height:540px;">
+
+        <p>
+            The player HUD has also been implemented and is working well aside from 1 minor bug. The health and experience bars are not setting properly on initiating the game, but they begin working properly as soon as the player has recieved damage and experience. I believe this could be superficially fixed with an extra call to my UiEventHandeler in the right place but probably the true cause of this lies in my script executuion order and so I will have to look into this further.
+
+            Player controlls have been refined and are nearly in what I plan to be their final state. Also the game now better responds to your progression and a win condition is triggered on completing the 5th cave.
+
+            The game is now basicially playable, although not yet very challenging as there is not yet any proper penalty for player death. That will come soon.
+        </p>
+        <p> ----------------------- </p>
+    </div>
+
+    <div class="content">
+        <h3>procedural meshes and fancy new toys - 24/07/17</h3>
+
+        <p>
+            Recent developments in this games development have been key deciding factors, as to its final structure. When I origionally wrote my design documents back at the start of June I left myself 2 plans, A and B for how the caves would work.
+            Plan B was simply slotting primitaves into a pattern to form the cave around the player, at the time of writing the document it seemed a worthy backup plan which would be simple to implemrnt. However while going through the process of sorting the navigation for my player and enemy I realised that for this to work i would probably need each chunk of wall to be a nav-mesh-agent. While that would be possible to implement it would never be concidered efficent. Plan A was looking better and better every day, good thing it was the way I always wanted to do it. This is mainly because it would involve learning to do something I have wanted to do for a while, generate a procedural mesh for a game.
+
+            So I set about researching how to fully implement plan A. Soon I was experamenting with mesh generation and researching information on how nav mesh updates and manages itself. I began to suspect it may be tricky, there was no way to generate a nav-mesh on the fly built in to unity so I started planning ways to deform a mesh in game with a pre-baked nav and then force the nav to refresh itself after, hopefully registering the new relative topology of its parts in the process.
+            Then I learned that the unity 5.6 updates included support for the feature of my dreams, new API for generating a nav-mesh at runtime. However, I was using 5.4.
+            Despite this I took the news as a sign that I should give it a go. To risk the mimimum amount of time potentially wasted chasing this new feature I decided I would only attempt the upgrade if I got satisfactory mesh generation for the dungeon working first.
+        </p>
+
+        <img src="http://image.ibb.co/n9p22v/4_Random_Paths.jpg" alt="random paths" style="width:1898px;height:870px;">
+
+        <p>
+            The first step was generating a procedural plane, then writhing code to randomly assign a collection of waypoint vector positions for the path.
+            After this was done, it was a straightforward process to change the target position of any verticies in the mesh not refrenged as path to be higher up, with the pollygons in-between forming the walls.
+        </p>
+
+        <img src="http://image.ibb.co/h4AYZk/apiBox.png" alt="API assistant" style="width:396px;height:226px;">
+
+        <p>
+            Despite my apprehension with regard to updating unity while mid-project, I was relieved to find it a relatively painless process. There is an automated API updater built into unity which handled most of the changes required, however there were some of the standard assets I have imported that needed a little manual help to get up to date. These changes mainly involved how HDR is enabled and how texture compression for sprites is refrenced.The HDR refrences were especially important to make right as they are key to the camera bloom effect which makes the campfire so pretty and luminescent.
+            With this ready to go I have begun accesing the new features I desired and now have a nav-mesh baking out on the fly along with my procedural cave geometry, though it is currently not accesable to my player and still needs tweaking to its general peramaters I can see it. I still need to strip out the elements of the previous nav which are in the way as they are still baked into the level, then soon hopefully get the player and enemy using their shiney new nav-mesh.
+            I see this as the final main technical hurdle for the game MVP.
+        </p>
+        <img src="http://image.ibb.co/fLMRLQ/procedural_Nav_mesh.jpg" alt="new nav" style="width:1070px;height:1180px;">
+        <p>
+            After this works there are then only 4 relatively minor further requirements before the game will be complete enough to be worth publicly playtesting with. While still tricky in their own ways I will happily be heading back into previously well-charted waters.
+            They are enemy spawning, item pickup, player HUD and cave/campsite transitioning.
+            (I already have a short list of victims I plan to force to play this pre-alpha release)
+        </p>
+        <p>
+            Unity - Special Tip
+            When in doubt, save copies. Then follow your heart.
+        </p>
+        <ul>
+            <li>links</li>
+            <li><a href="https://github.com/Unity-Technologies/NavMeshComponents/tree/master/Assets/Examples/Scripts">Unity Guthub - NavMeshComponents</a></li>
+            <li><a href="https://forum.unity3d.com/threads/welcome-new-navmesh-features-experimental-preview.438991/">Unity Announcement - new nav features overview</a></li>
+        </ul>
+        <p> ----------------------- </p>
+    </div>
+
+    <div class="content">
+        <h3>items, inventory and mystery - 04/07/17</h3>
+        <!--<iframe width="854" height="480" src="https://www.youtube.com/embed/KB9L9theaCw" frameborder="0" allowfullscreen></iframe>-->
+        <p>
+            While the <del>plank of wood</del> sword you have seen previously is quite formidabble it just wont do on its own. As a result of this I managed to construct a projectile based weapon, a magic staff which summons a ball of damage which propells itself across the level.
+            Little did i know the horrors that would await me when I first tried to get the charachter to swap between these 2 weapons.
+            The sword no longer seemed able to pass its damage....  even though it was exactly the same as when it worked.
+            This curse haunted me for 2 full days, what was wrong?
+            Eventually it dawned on me, i must have changed something in the enemy to allow for the magic ball which the sword depended on, and I eventually found my culprit.
+            <i> The <b>Is Trigger</b> checkbox. </i>
+        </p>
+        <!--<img src="https://image.ibb.co/i4wVSv/Screenshot_2017_07_04_20_18_09.png" alt="is trigger box" style="width:600px;height:314px;">-->
+
+        <a href="https://imgbb.com/"><img src="https://image.ibb.co/i4wVSv/Screenshot_2017_07_04_20_18_09.png" alt="is trigger box" border="0" /></a>
+        <p>
+            It had been checked while I was using the sword, and I now found myself in despair as it need to be unchecked for my dreams to be fulfilled and my magical fireballs to be able to scorch into ashes all who stand before the mighty player of this game.
+            Then came the revelation, the sword should manage its own problems.I left enemy <b>Is Trigger</b> unchecked. I changed the <b>Is Trigger</b> value on my sword prefab to checked, the sword worked. So did the projectiles.
+            Hurrah!!
+
+            Times were good but these gameobjects remained unworthy, for they were hardcoded directly into the inventory controller. And so they were purged.
+            Next begins a new glorious era in which a master item list akin to a database will be referenced by the inventory controller, and players will be able to collect and change equippable items according to their own will.
+
+            Construction has begun already with changes to the inventory controller and a snazzy but simple canvas UI to help players select their choices.
+            The loot is coming.
+        </p>
+
+        <!--<img src="https://image.ibb.co/i5hqua/Screenshot_2017_07_04_20_01_02.png" alt="canvas screenshot" style="width:600px;height:314px;">-->
+
+        <a href="https://ibb.co/iCQofF"><img src="https://preview.ibb.co/j6QX7v/Screenshot_2017_07_04_20_01_02.png" alt="Screenshot 2017 07 04 20 01 02" border="0" /></a>
+        <p>
+            Unity - Special Tip
+            using UnityEngine.UI; this namespace allows you to directly reference UI elements such as buttons as objects in your c#.
+        </p>
+        <p> ----------------------- </p>
+
+    </div>
+
+    <div class="content">
+        <h3>chats and stats - 24/06/17</h3>
+        <p>
+            For NPC interacion i built a dialogue manager which sends lines of dialogue to a canvas UI which contains a button to continue/end the conversation. The NPC calls up an instance of the dialogue manager when its interact method is called and the precise lines of text to be displayed are be set in the editor.
+            There are also now some stats in the player, who starts with a power base stat of 6 with a buff of 4 totaling 9 power. When the sword is equipped a further buff of 6 is added to the player power. When sword is re-equipped the buff is properly removed and replaced.
+            The weapons are defined by an inventory IWeapon which i should be able to apply to many other types of weapon in the near future. I hope it will be good but it is possible that there are some bugs that won't become obvious untill I am using more varied equipable objects on the final stat list which will be more complex.
+            The sword is currently spawned as a child of an empty game object called player hand, in the fnal build this object will be either replaced by or attached to a bone in the player rig.
+            The swing of the sword is controlled by the animation state machine and animator which come with unity.
+            A handy feature of the unity animator is that aswell as standard transormations you can set key frames for weither or not the collidor for the object is enabled/disabled.
+            This makes it very convienent to ensure that the weapon can only trigger collision while it is being swung at someone. This means that the attack has to be triggered in the proper way and users cannot cheat by simply running into the enemy with the sword out in hand.
+        </p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/V13Ugm9I6V8" frameborder="0" allowfullscreen></iframe>
+        <p>
+            The standard fog which was being used before is now accompanied by the global fog script from the standard assets which helps generate fog effect more fully around the screen than before.
+        </p>
+
+        <p> ----------------------- </p>
+    </div>
+
+    <div class="content">
+        <h3>Humble Dev Beginnings - 16/06/17</h3>
+        <iframe width="854" height="480" src="https://www.youtube.com/embed/KB9L9theaCw" frameborder="0" allowfullscreen></iframe>
+        <p>
+            With the aid of a few free low-poly basic assets and some moddeling of my own the base camp from which our hero will set forth on a mighty quest.
+            The movement is done using a nav mesh, so pathfinding for our player is quickly and easily calculated. In the future there will be enemies who use the same technique to hunt and kill the player.
+            There is also a simple hierarchy here, the demo object types shown are all children of an interactable base class.
+            Special thanks to Pavel Mostovschikov who has made avalable an open source mesh which I used as a base for the player charachter models.
+        </p>
+        <img src="https://image.ibb.co/htMzCa/char2sillouete.jpg" alt="charachter profiles" style="width:600px;height:314px;">
+        <p>
+            These models have been rigged in mixamo. I never used mixamo before and found it quite a good alternative to my standard rigging process.
+            In a relatively short time I had rigs skinned into both models to a standard that would have taken hours the old way. Its a little stretchy in some places so some weights may need to be tweaked to polish it at a later stage.
+            Also before I would want to animate directly onto one of these rigs I would add some IK (inverse kinematic) solvers to it for better motion controll.
+            I am looking foreward to attempting to intigrate both mixamo animations and some of my own into the game using the mechanim feature which is built into unity to see how they compare.
+            However this will have to wait untill a later date untill after higher priority core mechanics are sorted.
+            Overall so far I would recomend this service.
+        </p>
+        <p>
+            Unity - Special Tip
+            Add Color Correction Curves to your camera and play with the values to punch up your visual impact.
+        </p>
+        <ul>
+            <li>links</li>
+            <li><a href="https://www.cgtrader.com/free-3d-models/character/woman/low-poly-base-mesh-female">Pavel Mostovschikov - low poly female</a></li>
+            <li><a href="https://www.mixamo.com/auto-rigger">mixamo - online rigging</a></li>
+            <li><a href="https://www.assetstore.unity3d.com/en/#!/content/58821">low poly meshes asset pack</a></li>
+        </ul>
+        <p> ----------------------- </p>
+
+        <p> Game by "Jar Of Carrot Productions" </p>
+        <p> A.K.A. Bryan Foley  </p>
+
+        <a href="index.html">back to main page</a>
+    </div>
     
-<p>
-    Despite my apprehension with regard to updating unity while mid-project, I was relieved to find it a relatively painless process. There is an automated API updater built into unity which handled most of the changes required, however there were some of the standard assets I have imported that needed a little manual help to get up to date. These changes mainly involved how HDR is enabled and how texture compression for sprites is refrenced.The HDR refrences were especially important to make right as they are key to the camera bloom effect which makes the campfire so pretty and luminescent. 
-    With this ready to go I have begun accesing the new features I desired and now have a nav-mesh baking out on the fly along with my procedural cave geometry, though it is currently not accesable to my player and still needs tweaking to its general peramaters I can see it. I still need to strip out the elements of the previous nav which are in the way as they are still baked into the level, then soon hopefully get the player and enemy using their shiney new nav-mesh. 
-    I see this as the final main technical hurdle for the game MVP. 
-</p>
-    <img src="http://image.ibb.co/fLMRLQ/procedural_Nav_mesh.jpg" alt="new nav" style="width:1070px;height:1180px;">
-<p>
-    After this works there are then only 4 relatively minor further requirements before the game will be complete enough to be worth publicly playtesting with. While still tricky in their own ways I will happily be heading back into previously well-charted waters.
-    They are enemy spawning, item pickup, player HUD and cave/campsite transitioning.
-    (I already have a short list of victims I plan to force to play this pre-alpha release)
-</p>
-<p>
-    Unity - Special Tip
-    When in doubt, save copies. Then follow your heart.
-</p>
-<ul>
-    <li>links</li>
-    <li><a href="https://github.com/Unity-Technologies/NavMeshComponents/tree/master/Assets/Examples/Scripts">Unity Guthub - NavMeshComponents</a></li>
-    <li><a href="https://forum.unity3d.com/threads/welcome-new-navmesh-features-experimental-preview.438991/">Unity Announcement - new nav features overview</a></li>
-</ul>
-<p> ----------------------- </p>
+    <footer>
+        <h3> &copy; 2018 Bryan Foley </h3>
+    </footer>
 
-
-
-
-
-<h3>items, inventory and mystery - 04/07/17</h3>
-<!--<iframe width="854" height="480" src="https://www.youtube.com/embed/KB9L9theaCw" frameborder="0" allowfullscreen></iframe>-->
-<p>
-    While the <del>plank of wood</del> sword you have seen previously is quite formidabble it just wont do on its own. As a result of this I managed to construct a projectile based weapon, a magic staff which summons a ball of damage which propells itself across the level. 
-    Little did i know the horrors that would await me when I first tried to get the charachter to swap between these 2 weapons.
-    The sword no longer seemed able to pass its damage....  even though it was exactly the same as when it worked.
-    This curse haunted me for 2 full days, what was wrong?
-    Eventually it dawned on me, i must have changed something in the enemy to allow for the magic ball which the sword depended on, and I eventually found my culprit.
-    <i> The <b>Is Trigger</b> checkbox. </i>
-</p>
-<!--<img src="https://image.ibb.co/i4wVSv/Screenshot_2017_07_04_20_18_09.png" alt="is trigger box" style="width:600px;height:314px;">-->
-
-<a href="https://imgbb.com/"><img src="https://image.ibb.co/i4wVSv/Screenshot_2017_07_04_20_18_09.png" alt="is trigger box" border="0" /></a>
-<p>
-    It had been checked while I was using the sword, and I now found myself in despair as it need to be unchecked for my dreams to be fulfilled and my magical fireballs to be able to scorch into ashes all who stand before the mighty player of this game.
-    Then came the revelation, the sword should manage its own problems.I left enemy <b>Is Trigger</b> unchecked. I changed the <b>Is Trigger</b> value on my sword prefab to checked, the sword worked. So did the projectiles.
-    Hurrah!!
-
-    Times were good but these gameobjects remained unworthy, for they were hardcoded directly into the inventory controller. And so they were purged.
-    Next begins a new glorious era in which a master item list akin to a database will be referenced by the inventory controller, and players will be able to collect and change equippable items according to their own will.
-
-    Construction has begun already with changes to the inventory controller and a snazzy but simple canvas UI to help players select their choices.  
-    The loot is coming.
-</p>
-
-<!--<img src="https://image.ibb.co/i5hqua/Screenshot_2017_07_04_20_01_02.png" alt="canvas screenshot" style="width:600px;height:314px;">-->
-
-<a href="https://ibb.co/iCQofF"><img src="https://preview.ibb.co/j6QX7v/Screenshot_2017_07_04_20_01_02.png" alt="Screenshot 2017 07 04 20 01 02" border="0" /></a>
-<p>
-    Unity - Special Tip
-    using UnityEngine.UI; this namespace allows you to directly reference UI elements such as buttons as objects in your c#.
-</p>
-<p> ----------------------- </p>
-
-
-
-<h3>chats and stats - 24/06/17</h3>
-<p>
-    For NPC interacion i built a dialogue manager which sends lines of dialogue to a canvas UI which contains a button to continue/end the conversation. The NPC calls up an instance of the dialogue manager when its interact method is called and the precise lines of text to be displayed are be set in the editor.
-    There are also now some stats in the player, who starts with a power base stat of 6 with a buff of 4 totaling 9 power. When the sword is equipped a further buff of 6 is added to the player power. When sword is re-equipped the buff is properly removed and replaced.
-    The weapons are defined by an inventory IWeapon which i should be able to apply to many other types of weapon in the near future. I hope it will be good but it is possible that there are some bugs that won't become obvious untill I am using more varied equipable objects on the final stat list which will be more complex.
-    The sword is currently spawned as a child of an empty game object called player hand, in the fnal build this object will be either replaced by or attached to a bone in the player rig.
-    The swing of the sword is controlled by the animation state machine and animator which come with unity.
-    A handy feature of the unity animator is that aswell as standard transormations you can set key frames for weither or not the collidor for the object is enabled/disabled.
-    This makes it very convienent to ensure that the weapon can only trigger collision while it is being swung at someone. This means that the attack has to be triggered in the proper way and users cannot cheat by simply running into the enemy with the sword out in hand.
-</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/V13Ugm9I6V8" frameborder="0" allowfullscreen></iframe>
-<p>
-    The standard fog which was being used before is now accompanied by the global fog script from the standard assets which helps generate fog effect more fully around the screen than before.
-</p>
-
-<p> ----------------------- </p>
-
-
-
-
-<h3>Humble Dev Beginnings - 16/06/17</h3>
-<iframe width="854" height="480" src="https://www.youtube.com/embed/KB9L9theaCw" frameborder="0" allowfullscreen></iframe>
-<p>
-    With the aid of a few free low-poly basic assets and some moddeling of my own the base camp from which our hero will set forth on a mighty quest.
-    The movement is done using a nav mesh, so pathfinding for our player is quickly and easily calculated. In the future there will be enemies who use the same technique to hunt and kill the player.
-    There is also a simple hierarchy here, the demo object types shown are all children of an interactable base class.
-    Special thanks to Pavel Mostovschikov who has made avalable an open source mesh which I used as a base for the player charachter models.
-</p>
-<img src="https://image.ibb.co/htMzCa/char2sillouete.jpg" alt="charachter profiles" style="width:600px;height:314px;">
-<p>
-    These models have been rigged in mixamo. I never used mixamo before and found it quite a good alternative to my standard rigging process.
-    In a relatively short time I had rigs skinned into both models to a standard that would have taken hours the old way. Its a little stretchy in some places so some weights may need to be tweaked to polish it at a later stage.
-    Also before I would want to animate directly onto one of these rigs I would add some IK (inverse kinematic) solvers to it for better motion controll.
-    I am looking foreward to attempting to intigrate both mixamo animations and some of my own into the game using the mechanim feature which is built into unity to see how they compare.
-    However this will have to wait untill a later date untill after higher priority core mechanics are sorted.
-    Overall so far I would recomend this service.
-</p>
-<p>
-    Unity - Special Tip
-    Add Color Correction Curves to your camera and play with the values to punch up your visual impact.
-</p>
-<ul>
-    <li>links</li>
-    <li><a href="https://www.cgtrader.com/free-3d-models/character/woman/low-poly-base-mesh-female">Pavel Mostovschikov - low poly female</a></li>
-    <li><a href="https://www.mixamo.com/auto-rigger">mixamo - online rigging</a></li>
-    <li><a href="https://www.assetstore.unity3d.com/en/#!/content/58821">low poly meshes asset pack</a></li>   
-</ul>
-<p> ----------------------- </p>
-
-<p> Game by "Jar Of Carrot Productions" </p>
-<p> A.K.A. Bryan Foley  </p>
-
-<a href="index.html">back to main page</a>
+</body>
